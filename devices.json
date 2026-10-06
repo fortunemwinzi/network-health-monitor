@@ -1,6 +1,7 @@
 [
-    {"name": "Loopback", "host": "127.0.0.1", "port": 22},
+    {"name": "Loopback", "host": "127.0.0.1"},
     {"name": "Google DNS", "host": "8.8.8.8", "port": 53},
     {"name": "Cloudflare DNS", "host": "1.1.1.1", "port": 53},
-    {"name": "Test Unreachable Device", "host": "192.0.2.1", "port": 80}
+    {"name": "Closed Port Test", "host": "127.0.0.1", "port": 9},
+    {"name": "Unused Local Address", "host": "10.0.2.99", "port": 80}
   ]

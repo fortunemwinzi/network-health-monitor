@@ -44,11 +44,11 @@ def check_device(device: dict) -> dict:
     if "port" in device:
         port_ok, latency = check_port(device["host"], device["port"])
     if ping_ok and (port_ok is None or port_ok):
-    status = "UP"
-elif ping_ok or port_ok:
-    status = "DEGRADED"
-else:
-    status = "DOWN"
+        status = "UP"
+    elif ping_ok or port_ok:
+        status = "DEGRADED"
+    else:
+        status = "DOWN"
     return {
         "timestamp": datetime.now().isoformat(timespec="seconds"),
         "name": device["name"],
