@@ -75,10 +75,10 @@ def main() -> int:
     results = [check_device(d) for d in devices]
     write_log(results)
 
-    print(f"{'DEVICE':<26}{'HOST':<16}{'STATUS':<8}{'LATENCY'}")
+    print(f"{'DEVICE':<26}{'HOST':<16}{'STATUS':<10}{'LATENCY'}")
     for r in results:
         lat = f"{r['latency_ms']} ms" if r["latency_ms"] else "-"
-        print(f"{r['name']:<26}{r['host']:<16}{r['status']:<8}{lat}")
+        print(f"{r['name']:<26}{r['host']:<16}{r['status']:<10}{lat}")
 
     down = [r for r in results if r["status"] == "DOWN"]
     print(f"\n{len(results) - len(down)}/{len(results)} devices up")
