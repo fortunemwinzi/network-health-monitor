@@ -222,3 +222,5 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 660699a50572b67298f13d3bb2d02280919a073e
+reports/
+*.swp
