@@ -67,6 +67,12 @@ Alerts are sent to Telegram only when a device changes status
 (for example UP -> DOWN), so a persistent fault doesn't send a message
 every 5 minutes.
 
+### Telegram alerts
+<img width="626" height="177" alt="telegram alerts" src="https://github.com/user-attachments/assets/8fdbc1ca-adb2-43de-b5fb-13259663d836" />
+
+### HTML Report
+<img width="1131" height="880" alt="report" src="https://github.com/user-attachments/assets/8a528e79-4c00-45fc-8f5d-58b0d1f9e0f4" />
+
 ### Limitations
 Tested in a Linux VM, so cron only runs while the VM is on. A real
 deployment would run on an always-on machine such as a small server
