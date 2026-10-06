@@ -41,6 +41,33 @@ Unused Local Address      10.0.2.99       DOWN      -
 - I used Git branches and resolved a merge conflict when my local repo and GitHub's starter files disagreed.
 
 ## Roadmap
-- [ ] HTML report
+- [X] HTML report
 - [ ] Email or Telegram alerts when a device goes down
 - [ ] Scheduled runs with cron
+## Scheduling
+
+The monitor runs every 5 minutes using cron. A small wrapper script
+(`run_monitor.sh`) loads the Telegram credentials from a private file in
+the home folder, which is kept outside the repository, then runs the check
+and appends the output to `logs/cron.log`.
+
+1. Create `~/.monitor_env` (never commit this file):
+```
+export TELEGRAM_BOT_TOKEN="your-bot-token"
+export TELEGRAM_CHAT_ID="your-chat-id"
+```
+2. Restrict access to it: `chmod 600 ~/.monitor_env`
+3. Make the wrapper executable: `chmod +x run_monitor.sh`
+4. Open the cron editor with `crontab -e` and add:
+```
+*/5 * * * * /home/devasc/network-health-monitor/run_monitor.sh
+```
+
+Alerts are sent to Telegram only when a device changes status
+(for example UP -> DOWN), so a persistent fault doesn't send a message
+every 5 minutes.
+
+### Limitations
+Tested in a Linux VM, so cron only runs while the VM is on. A real
+deployment would run on an always-on machine such as a small server
+or Raspberry Pi.
